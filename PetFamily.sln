@@ -5,7 +5,7 @@ VisualStudioVersion = 17.14.36310.24
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PetFamily", "PetFamily\PetFamily.csproj", "{4849457E-78DA-4571-B083-D1BE3F43BCEE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PetFamily.Core", "PetFamily.Core\PetFamily.Core.csproj", "{815D0646-4DAA-4A0F-BA23-AA24E7AF08EC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PetFamily.Domain", "PetFamily.Core\PetFamily.Domain.csproj", "{815D0646-4DAA-4A0F-BA23-AA24E7AF08EC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PetFamily.Application", "PetFamily.Application\PetFamily.Application.csproj", "{F2C9F9BF-AC3B-440E-9EFB-C973288F0D80}"
 EndProject

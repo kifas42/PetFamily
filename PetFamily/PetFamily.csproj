@@ -12,7 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\PetFamily.Application\PetFamily.Application.csproj" />
-    <ProjectReference Include="..\PetFamily.Core\PetFamily.Core.csproj" />
+    <ProjectReference Include="..\PetFamily.Core\PetFamily.Domain.csproj" />
     <ProjectReference Include="..\PetFamily.Infrastructure\PetFamily.Infrastructure.csproj" />
   </ItemGroup>
 
