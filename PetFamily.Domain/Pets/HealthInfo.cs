@@ -2,9 +2,14 @@
 
 public record HealthInfo
 {
-    public HealthRating HealthRating { get; set; }
-    public string Description { get; set; } = string.Empty;
+    public HealthInfo(HealthRating rating, string description)
+    {
+        HealthRating = rating;
+        Description = description;
+    }
 
+    public HealthRating HealthRating { get; private set; }
+    public string Description { get; private set; } = string.Empty;
 }
 
 public enum HealthRating

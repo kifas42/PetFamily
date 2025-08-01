@@ -19,11 +19,11 @@ public class Volunteer : Entity<Guid>
         Requisites = requisites;
     }
 
-    public PersonBio Bio { get; init; }
-    public string Description { get; init; }
-    public string Experience { get; init; }
+    public PersonBio Bio { get; private set; }
+    public string Description { get; private set; }
+    public string Experience { get; private set; }
     public IReadOnlyList<SocialNetwork> SocialNetworks => _socialNetworks;
-    public Requisites Requisites { get; init; }
+    public Requisites Requisites { get; private set; }
 
     public int GetDomesticatedPetCount() => GetPetCount(PetStatus.HasHome);
     public int GetLookingForHomePetCount() => GetPetCount(PetStatus.NeedHome);

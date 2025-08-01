@@ -2,20 +2,18 @@
 
 namespace PetFamily.Domain.Pets.Species;
 
-public record Species
+public class Species : Entity<Guid>
 {
-    public Species(string title)
+    public Species(Guid id, string title):base(id)
     {
-        Id = Guid.NewGuid();
         Title = title;
     }
-    public Guid Id { get; }
-    public string Title { get; }
+    public string Title { get; private set; }
     public IReadOnlyList<Breed> Breeds => _breeds;
 
     private readonly List<Breed> _breeds = [];
 
-    public IResult AddBreed(Breed breed)
+    public Result AddBreed(Breed breed)
     {
         if (_breeds.Contains(breed))
         {
@@ -25,7 +23,7 @@ public record Species
         return Result.Success();
     }
 
-    public IResult RemoveBreed(Breed breed)
+    public Result RemoveBreed(Breed breed)
     {
         if (!_breeds.Contains(breed))
         {
@@ -34,7 +32,7 @@ public record Species
         _breeds.Remove(breed);
         return Result.Success();
     }
-    public IResult RemoveBreed(Guid id)
+    public Result RemoveBreed(Guid id)
     {
         var breed = _breeds.SingleOrDefault(b => b.Id == id);
 

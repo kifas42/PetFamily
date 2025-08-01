@@ -2,15 +2,15 @@
 
 namespace PetFamily.Domain.Pets.Species;
 
-public record Breed
+public class Breed
 {
     private Breed(string title)
     {
         Title = title;
         Id = Guid.NewGuid();
     }
-    public Guid Id { get;}
-    public string Title { get; }
+    public Guid Id { get; private set; }
+    public string Title { get; private set; }
 
     public static Result<Breed, string> CreateBreed(string title)
     {

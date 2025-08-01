@@ -38,11 +38,7 @@ public class Pet : Entity<Guid>
         Status = status;
         DateOfRegistration = DateTime.Now;
 
-        Health = new HealthInfo()
-        {
-            HealthRating = HealthRating.Good,
-            Description = "feel good"
-        };
+        Health = new HealthInfo(HealthRating.Good, "feel good");
 
     }
     public string Name { get; private set; }
