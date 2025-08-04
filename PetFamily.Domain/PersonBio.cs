@@ -21,11 +21,11 @@ public record PersonBio
         Phone = phone;
     }
 
-    public string Name { get; private set; }
-    public string? MiddleName { get; private set; }
-    public string LastName { get; private set; }
-    public string Email { get; private set; }
-    public string Phone { get; private set; }
+    public string Name { get; }
+    public string? MiddleName { get; }
+    public string LastName { get; }
+    public string Email { get; }
+    public string Phone { get; }
 
     public static Result<PersonBio, string> Create(
         string name,

@@ -8,8 +8,8 @@ public record HealthInfo
         Description = description;
     }
 
-    public HealthRating HealthRating { get; private set; }
-    public string Description { get; private set; } = string.Empty;
+    public HealthRating HealthRating { get; }
+    public string Description { get; } = string.Empty;
 }
 
 public enum HealthRating
