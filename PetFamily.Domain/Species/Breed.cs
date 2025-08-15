@@ -1,16 +1,21 @@
 ﻿using CSharpFunctionalExtensions;
 
-namespace PetFamily.Domain.Pets.Species;
+namespace PetFamily.Domain.Species;
 
 public class Breed
 {
+    //ef core
+    public Breed()
+    {
+        
+    }
     private Breed(string title)
     {
         Title = title;
         Id = Guid.NewGuid();
     }
     public Guid Id { get; private set; }
-    public string Title { get; private set; }
+    public string Title { get; private set; } = string.Empty;
 
     public static Result<Breed, string> CreateBreed(string title)
     {

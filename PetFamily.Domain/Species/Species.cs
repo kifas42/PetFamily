@@ -1,13 +1,19 @@
 ﻿using CSharpFunctionalExtensions;
 
-namespace PetFamily.Domain.Pets.Species;
+namespace PetFamily.Domain.Species;
 
 public class Species : Entity<Guid>
 {
-    public Species(Guid id, string title):base(id)
+    // ef core
+    private Species(Guid id) : base(id)
+    {
+    }
+
+    public Species(Guid id, string title) : base(id)
     {
         Title = title;
     }
+
     public string Title { get; private set; }
     public IReadOnlyList<Breed> Breeds => _breeds;
 
@@ -19,6 +25,7 @@ public class Species : Entity<Guid>
         {
             return Result.Failure("This breed already exist");
         }
+
         _breeds.Add(breed);
         return Result.Success();
     }
@@ -29,14 +36,15 @@ public class Species : Entity<Guid>
         {
             return Result.Failure("This breed not found");
         }
+
         _breeds.Remove(breed);
         return Result.Success();
     }
+
     public Result RemoveBreed(Guid id)
     {
         var breed = _breeds.SingleOrDefault(b => b.Id == id);
 
         return breed == null ? Result.Failure($"Id {id} not found") : RemoveBreed(breed);
     }
-
 }

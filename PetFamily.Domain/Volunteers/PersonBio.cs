@@ -1,8 +1,7 @@
-﻿using CSharpFunctionalExtensions;
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
+using CSharpFunctionalExtensions;
 
-
-namespace PetFamily.Domain;
+namespace PetFamily.Domain.Volunteers;
 
 public record PersonBio
 {

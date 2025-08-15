@@ -1,4 +1,4 @@
-﻿namespace PetFamily.Domain.Pets.Species;
+﻿namespace PetFamily.Domain.Volunteers;
 
 public record PetType
 {

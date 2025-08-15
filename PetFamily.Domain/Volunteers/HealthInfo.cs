@@ -1,10 +1,10 @@
-﻿namespace PetFamily.Domain.Pets;
+﻿namespace PetFamily.Domain.Volunteers;
 
 public record HealthInfo
 {
-    public HealthInfo(HealthRating rating, string description)
+    public HealthInfo(HealthRating healthRating, string description)
     {
-        HealthRating = rating;
+        HealthRating = healthRating;
         Description = description;
     }
 
