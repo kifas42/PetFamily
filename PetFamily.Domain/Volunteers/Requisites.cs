@@ -1,4 +1,4 @@
-﻿namespace PetFamily.Domain;
+﻿namespace PetFamily.Domain.Volunteers;
 
 public record Requisites
 {
@@ -10,7 +10,6 @@ public record Requisites
         BankAccount = bankAccount;
     }
     
-    public Guid Id { get; } = Guid.NewGuid();
     public string Title { get; }
     public string HelpDescription { get; }
     public string BankName { get; }

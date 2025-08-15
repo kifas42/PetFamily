@@ -1,15 +1,15 @@
-﻿namespace PetFamily.Domain;
+﻿namespace PetFamily.Domain.Volunteers;
 
 public record SocialNetwork
 {
-    public SocialNetwork(string name, string link, string personalAccount)
+    public SocialNetwork(string name, string url, string personalAccount)
     {
         Name = name;
-        Link = link;
+        Url = url;
         PersonalAccount = personalAccount;
     }
 
     public string Name { get; }
-    public string Link { get; }
+    public string Url { get; }
     public string PersonalAccount { get; }
 }

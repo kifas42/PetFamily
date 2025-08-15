@@ -1,17 +1,22 @@
 ﻿using CSharpFunctionalExtensions;
-using PetFamily.Domain.Pets.Species;
+using PetFamily.Domain.Shared;
 
-namespace PetFamily.Domain.Pets;
+namespace PetFamily.Domain.Volunteers;
 
 public class Pet : Entity<Guid>
 {
+    // ef core
+    private Pet(Guid id) : base(id)
+    {
+    }
+
     private Pet(
         Guid id,
         string name,
         string description,
         PetType petType,
         string color,
-        string address,
+        Address address,
         double weight,
         double height,
         string phoneNumber,
@@ -20,7 +25,7 @@ public class Pet : Entity<Guid>
         DateOnly dateOfBirth,
         bool isVaccinated,
         PetStatus status
-        ):base(id)
+    ) : base(id)
     {
         //Id = id;
         Name = name;
@@ -39,19 +44,19 @@ public class Pet : Entity<Guid>
         DateOfRegistration = DateTime.Now;
 
         Health = new HealthInfo(HealthRating.Good, "feel good");
-
     }
-    public string Name { get; private set; }
-    public string Description { get; private set; }
-    public PetType PetType { get; private set; }
-    public string Color { get; private set; }
-    public HealthInfo Health { get; private set; }
-    public string Address { get; private set; }
+
+    public string Color { get; private set; } = string.Empty;
+    public string Name { get; private set; } = string.Empty;
+    public string Description { get; private set; } = string.Empty;
+    public PetType PetType { get; private set; } = null!;
+    public HealthInfo Health { get; private set; } = null!;
+    public Address Address { get; private set; } = null!;
 
     public double WeightKilogram { get; private set; }
     public double HeightCentimeters { get; private set; }
-    public string OwnerPhoneNumber { get; private set; }
-    public string Gender { get; private set; }
+    public string OwnerPhoneNumber { get; private set; } = string.Empty;
+    public string Gender { get; private set; } = string.Empty;
     public bool IsSterilized { get; private set; }
 
     public DateOnly DateOfBirth { get; private set; }
@@ -60,7 +65,7 @@ public class Pet : Entity<Guid>
     public DateTime DateOfRegistration { get; private set; }
     public IReadOnlyList<Requisites> Requisites => _requisites;
 
-    private List<Requisites> _requisites = [];
+    private readonly List<Requisites> _requisites = [];
 
 
     public IResult AddRequisite(Requisites requisite)
@@ -73,6 +78,7 @@ public class Pet : Entity<Guid>
         _requisites.Add(requisite);
         return Result.Success();
     }
+
     public IResult RemoveRequisite(Requisites requisite)
     {
         if (!_requisites.Contains(requisite))
@@ -82,11 +88,5 @@ public class Pet : Entity<Guid>
 
         _requisites.Remove(requisite);
         return Result.Success();
-    }
-    public IResult RemoveRequisite(Guid id)
-    {
-        var req = _requisites.SingleOrDefault(r => r.Id == id);
-
-        return req == null ? Result.Failure($"Id {id} not found") : RemoveRequisite(req);
     }
 }
